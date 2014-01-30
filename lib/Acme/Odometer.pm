@@ -2,10 +2,7 @@ use strict;
 use warnings;
 
 package Acme::Odometer;
-{
-  $Acme::Odometer::VERSION = '0.0.1';
-}
-
+$Acme::Odometer::VERSION = '0.0.2';
 use Moo 1.001;
 use MooX::Types::MooseLike::Numeric qw(PositiveInt);
 
@@ -108,13 +105,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Acme::Odometer - Create graphical web counters
 
 =head1 VERSION
 
-version 0.0.1
+version 0.0.2
 
 =head1 SYNOPSIS
 
@@ -122,7 +121,12 @@ version 0.0.1
     use Acme::Odometer;
     use File::Slurp qw( write_file );
 
-    my $image = $retro->image( '000123456789' );
+    my $odometer = Acme::Odometer->new(
+        asset_path     => 'path/to/digit/files',
+        file_extension => 'png',
+    );
+
+    my $image = $odometer->image( '000123456789' );
 
     # write as a GIF
     write_file( "counter.gif", $image->gif );
@@ -137,11 +141,11 @@ version 0.0.1
 
     get '/counter' => sub {
         header( 'Content-Type' => 'image/png' );
-        my $retro = Acme::Odometer->new(
+        my $odometer = Acme::Odometer->new(
             asset_path     => 'path/to/digit/files',
             file_extension => 'png',
         );
-        $retro->image( params->{count} )->png;
+        $odometer->image( params->{count} )->png;
     };
 
 =head1 DESCRIPTION

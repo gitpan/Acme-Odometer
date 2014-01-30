@@ -4,7 +4,7 @@
       "Olaf Alders <olaf@wundercounter.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300031, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 5.012, CPAN::Meta::Converter version 2.133380",
    "license" : [
       "perl_5"
    ],
@@ -35,6 +35,7 @@
       "develop" : {
          "requires" : {
             "Pod::Coverage::TrustPod" : "0",
+            "Test::CPAN::Changes" : "0.19",
             "Test::Pod::Coverage" : "1.08"
          }
       },
@@ -68,6 +69,6 @@
          "web" : "https://github.com/oalders/acme-odometer"
       }
    },
-   "version" : "0.0.1"
+   "version" : "0.0.2"
 }
 
