@@ -2,14 +2,14 @@ use strict;
 use warnings;
 
 package Acme::Odometer;
-$Acme::Odometer::VERSION = '0.0.2';
+$Acme::Odometer::VERSION = '0.0.3';
 use Moo 1.001;
-use MooX::Types::MooseLike::Numeric qw(PositiveInt);
+use namespace::clean;
 
 use GD;
 use Memoize;
+use MooX::Types::MooseLike::Numeric qw(PositiveInt PositiveOrZeroInt);
 use Path::Class qw( file );
-use namespace::autoclean;
 
 memoize( '_digit_as_image' );
 
@@ -49,7 +49,7 @@ has _first_image => (
 
 has _i => (
     is       => 'ro',
-    isa      => PositiveInt,
+    isa      => PositiveOrZeroInt,
     required => 0,
     init_arg => undef,
     writer   => '_set_i',
@@ -113,7 +113,7 @@ Acme::Odometer - Create graphical web counters
 
 =head1 VERSION
 
-version 0.0.2
+version 0.0.3
 
 =head1 SYNOPSIS
 
@@ -219,7 +219,7 @@ Olaf Alders <olaf@wundercounter.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Olaf Alders.
+This software is copyright (c) 2014 by Olaf Alders.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
