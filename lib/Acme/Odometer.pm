@@ -1,8 +1,10 @@
 use strict;
 use warnings;
 
+use 5.006;
+
 package Acme::Odometer;
-$Acme::Odometer::VERSION = '0.0.3';
+$Acme::Odometer::VERSION = '0.0.4';
 use Moo 1.001;
 use namespace::clean;
 
@@ -113,7 +115,7 @@ Acme::Odometer - Create graphical web counters
 
 =head1 VERSION
 
-version 0.0.3
+version 0.0.4
 
 =head1 SYNOPSIS
 
